@@ -1,0 +1,5 @@
+package com.claudioworks.osworks.domain.service;
+
+public class CadastroClienteService {
+
+}

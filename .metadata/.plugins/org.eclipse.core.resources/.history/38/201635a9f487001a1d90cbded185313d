@@ -1,0 +1,22 @@
+package com.claudioworks.osworks.domain.service;
+
+import java.time.LocalDateTime;
+
+import org.springframework.stereotype.Service;
+
+import com.claudioworks.osworks.domain.model.OrdemServico;
+import com.claudioworks.osworks.domain.model.StatusOrderServico;
+import com.claudioworks.osworks.domain.repository.OrdemServicoRepository;
+
+@Service
+public class GestaoOrdemServicoService {
+
+	@Autowired
+	private OrdemServicoRepository ordemServicoRepository;
+	
+	public OrdemServico criar(OrdemServico ordemServico) {
+		ordemServico.setStatus(StatusOrderServico.ABERTA);
+		ordemServico.setDataAbertura(LocalDateTime.now());
+		return ordemServicoRepository.save(ordemServico);
+	}
+}

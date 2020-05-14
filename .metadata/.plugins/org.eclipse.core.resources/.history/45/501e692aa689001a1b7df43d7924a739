@@ -1,0 +1,5 @@
+package com.claudioworks.osworks.api.model;
+
+public class ComentarioModel {
+
+}

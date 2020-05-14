@@ -1,0 +1,7 @@
+package com.claudioworks.osworks.api.exceptionhandler;
+
+public class CampoHandler {
+	private String nome;
+	private String mensagem;
+
+}

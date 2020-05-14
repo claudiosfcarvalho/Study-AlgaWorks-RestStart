@@ -1,0 +1,6 @@
+package com.claudioworks.osworks;
+
+public interface ValidationGroups {
+
+	public interface ClienteId {};
+}

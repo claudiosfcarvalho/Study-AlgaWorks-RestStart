@@ -1,0 +1,5 @@
+package com.claudioworks.osworks.core;
+
+public class ModelMapperConfig {
+
+}

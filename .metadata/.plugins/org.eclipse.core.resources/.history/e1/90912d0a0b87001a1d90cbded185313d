@@ -1,0 +1,40 @@
+package com.claudioworks.osworks.api.controller;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.claudioworks.osworks.domain.model.Cliente;
+import com.claudioworks.osworks.domain.repository.ClienteRepository;
+
+@RestController
+public class ClienteController {
+
+	//com essa anotação a instacia é colocada automaticamente no manager
+	@PersistenceContext
+	private EntityManager manager;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
+	@GetMapping("/clientes")
+	public List<Cliente> listar() {
+		return clienteRepository.findAll();
+					//a forma abaixo seria para acesso direto sem o spring data jpa controlando
+					/*		return manager.
+					createQuery("from Cliente", Cliente.class). //linguagem jpql trazendo consulta do cliente
+					getResultList();							//retorna lista da consulta acima
+					*/
+	}
+	
+	@GetMapping("/clientes/{nome}")
+	public List<Cliente> listarPorNome(@PathVariable String nome) {
+		return clienteRepository.findByNomeContaining(nome);
+	}
+}

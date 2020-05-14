@@ -1,0 +1,33 @@
+package com.claudioworks.osworks.domain.service;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.claudioworks.osworks.domain.exception.NegocioException;
+import com.claudioworks.osworks.domain.model.Cliente;
+import com.claudioworks.osworks.domain.model.OrdemServico;
+import com.claudioworks.osworks.domain.model.StatusOrderServico;
+import com.claudioworks.osworks.domain.repository.ClienteRepository;
+import com.claudioworks.osworks.domain.repository.OrdemServicoRepository;
+
+@Service
+public class GestaoOrdemServicoService {
+
+	@Autowired
+	private OrdemServicoRepository ordemServicoRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
+	public OrdemServico criar(OrdemServico ordemServico) {
+		Cliente cliente = clienteRepository.findById(ordemServico.getCliente().getId())
+								.orElseThrow(() -> new NegocioException("Cliente não encontrado"));
+		ordemServico.setCliente(cliente);
+		ordemServico.setStatus(StatusOrderServico.ABERTA);
+		ordemServico.setDataAbertura(LocalDateTime.now());
+		
+		return ordemServicoRepository.save(ordemServico);
+	}
+}

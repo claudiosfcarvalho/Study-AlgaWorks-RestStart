@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.domain.EntityScan"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.validation.ObjectError"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.api.exceptionhandler.ProblemaHandler"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.context.MessageSource"/>
+<fullyQualifiedTypeName name="org.springframework.context.i18n.LocaleContextHolder"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.repository.ClienteRepository"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.exception.NegocioException"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonInclude.Include"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.Enumerated"/>
+<fullyQualifiedTypeName name="javax.persistence.EnumType"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.repository.OrdemServicoRepository"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.model.StatusOrderServico"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.service.GestaoOrdemServicoService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty.Access"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+<fullyQualifiedTypeName name="javax.validation.groups.Default"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.ValidationGroups"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.ValidationGroups.ClienteId"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.ValidationGroups.ClienteId"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.domain.model.OrdemServico"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="java.time.OffsetDateTime"/>
+<fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
+<fullyQualifiedTypeName name="com.claudioworks.osworks.api.model.OrdemServicoRepresentationModel"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+create table comentario (
+	id bigint not null auto_increment,
+	os_id bigint not null,
+	descricao text not null,
+	data_nvio datetime not null
+	
+	primary key (id)
+
+);
