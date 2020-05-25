@@ -8,6 +8,7 @@ public class SocialBooksApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SocialBooksApiApplication.class, args);
+
 	}
 
 }

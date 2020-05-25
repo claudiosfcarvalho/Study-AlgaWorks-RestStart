@@ -1,5 +1,0 @@
-package com.claudioworks.osworks.domain.model;
-
-public enum StatusOrderServico {
-
-}

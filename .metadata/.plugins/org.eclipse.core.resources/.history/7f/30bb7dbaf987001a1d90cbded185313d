@@ -1,5 +1,0 @@
-package com.claudioworks.osworks;
-
-public interface ValidationGroups {
-
-}

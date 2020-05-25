@@ -1,5 +1,0 @@
-package com.claudioworks.osworks.domain.repository;
-
-public interface OrdemServicoRepository {
-
-}
