@@ -1,6 +1,8 @@
-package com.claudioworks.socialBooksApi.handler;
+package com.claudioworks.socialBooksApi.Exception;
 
 public class LivroNaoEncontradoException extends RuntimeException{
+
+	private static final long serialVersionUID = 1L;
 
 	public LivroNaoEncontradoException(String msg) {
 		super(msg);

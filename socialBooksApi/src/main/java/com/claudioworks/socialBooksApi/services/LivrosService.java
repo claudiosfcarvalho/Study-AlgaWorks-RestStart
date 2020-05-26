@@ -1,5 +1,6 @@
 package com.claudioworks.socialBooksApi.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -8,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.claudioworks.socialBooksApi.Exception.LivroNaoEncontradoException;
+import com.claudioworks.socialBooksApi.domain.Comentario;
 import com.claudioworks.socialBooksApi.domain.Livro;
-import com.claudioworks.socialBooksApi.handler.LivroNaoEncontradoException;
+import com.claudioworks.socialBooksApi.repository.ComentarioRepository;
 import com.claudioworks.socialBooksApi.repository.LivrosRepository;
 
 @Service
@@ -17,6 +20,9 @@ public class LivrosService {
 
 	@Autowired
 	private LivrosRepository livrosRepository;
+	
+	@Autowired
+	private ComentarioRepository comentarioRepository;
 	
 	public List<Livro> listar() {
 		return livrosRepository.findAll();
@@ -51,5 +57,18 @@ public class LivrosService {
 		} catch(EmptyResultDataAccessException e) {
 			throw new LivroNaoEncontradoException("Livro não encontrado para deleção");
 		}
+	}
+	
+	public Comentario salvarComentario(Long LivroId, Comentario comentario) {
+		var livro = buscar(LivroId);
+		comentario.setId(null);
+		comentario.setLivro(livro);
+		comentario.setData(new Date());
+		return comentarioRepository.save(comentario);
+	}
+	
+	public List<Comentario> listarComentario(Long LivroId) {
+		var livro = buscar(LivroId);
+		return livro.getComentarios();
 	}
 }
