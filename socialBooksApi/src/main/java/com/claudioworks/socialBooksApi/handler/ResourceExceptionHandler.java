@@ -4,11 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.claudioworks.socialBooksApi.Exception.AutorExistenteException;
 import com.claudioworks.socialBooksApi.Exception.AutorNaoEncontradoException;
+import com.claudioworks.socialBooksApi.Exception.LivroExistenteException;
 import com.claudioworks.socialBooksApi.Exception.LivroNaoEncontradoException;
 import com.claudioworks.socialBooksApi.domain.DetalhesErro;
 
@@ -47,6 +49,30 @@ public class ResourceExceptionHandler {
 		erro.setStatus(409l);
 		erro.setTitulo(e.getMessage() == null ? "O autor já existe" : e.getMessage());
 		erro.setMensagemDesenvolvedor("http://erros.socialbooks.com/409");
+		erro.setTimestamp(System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
+	}
+	
+	@ExceptionHandler(LivroExistenteException.class)
+	public ResponseEntity<DetalhesErro> handlerLivroExistenteException
+									(LivroExistenteException e, HttpServletRequest request) {
+		
+		var erro = new DetalhesErro();
+		erro.setStatus(409l);
+		erro.setTitulo(e.getMessage() == null ? "O livro já existe" : e.getMessage());
+		erro.setMensagemDesenvolvedor("http://erros.socialbooks.com/409");
+		erro.setTimestamp(System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
+	}
+	
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity<DetalhesErro> handlerHttpMessageNotReadableException
+									(HttpMessageNotReadableException e, HttpServletRequest request) {
+		
+		var erro = new DetalhesErro();
+		erro.setStatus(400l);
+		erro.setTitulo(e.getMessage() == null ? "Requisição inválida" : "Requisição inválida :" + e.getMessage());
+		erro.setMensagemDesenvolvedor("http://erros.socialbooks.com/400");
 		erro.setTimestamp(System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
 	}

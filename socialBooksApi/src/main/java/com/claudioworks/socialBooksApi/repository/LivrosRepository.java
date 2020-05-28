@@ -7,4 +7,6 @@ import com.claudioworks.socialBooksApi.domain.Livro;
 
 public interface LivrosRepository extends JpaRepository<Livro, Long>{
 
+	public Livro findByNome(String nome);
+
 }

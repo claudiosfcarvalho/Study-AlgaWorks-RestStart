@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.claudioworks.socialBooksApi.Exception.AutorExistenteException;
 import com.claudioworks.socialBooksApi.Exception.LivroNaoEncontradoException;
 import com.claudioworks.socialBooksApi.domain.Comentario;
 import com.claudioworks.socialBooksApi.domain.Livro;
@@ -29,7 +30,6 @@ public class LivrosService {
 	}
 	
 	public Livro buscar(Long id) {
-		Consumer<Livro> livroConsumer;
 		Optional<Livro> livro = livrosRepository.findById(id);
 		if (!livro.isPresent()) {
 			throw new LivroNaoEncontradoException("O livro não pode ser encontrado");
@@ -38,6 +38,10 @@ public class LivrosService {
 	}
 	
 	public Livro salvar(Livro livro) {
+		var livroExistente = livrosRepository.findByNome(livro.getNome());
+		if (livroExistente != null) {
+			throw new AutorExistenteException("Livro já está cadastrado");
+		}
 		livro.setId(null);
 		return livrosRepository.save(livro);
 	}

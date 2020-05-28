@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -34,12 +35,13 @@ public class Livro implements Serializable{
 	private String nome;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date publicacao;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
 	private String resumo;
 	
-	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
+	@JsonInclude(Include.NON_EMPTY) //só retorna valor se for not null
 	@OneToMany(mappedBy = "livro") 
 	private List<Comentario> comentarios;
 	
