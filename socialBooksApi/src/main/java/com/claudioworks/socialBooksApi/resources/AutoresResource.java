@@ -3,6 +3,8 @@ package com.claudioworks.socialBooksApi.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.claudioworks.socialBooksApi.domain.Autor;
-import com.claudioworks.socialBooksApi.domain.Livro;
 import com.claudioworks.socialBooksApi.services.AutoresService;
 
 @RestController
@@ -41,14 +41,14 @@ public class AutoresResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> adiciona(@RequestBody Autor autor) {
+	public ResponseEntity<Void> adiciona(@Valid @RequestBody Autor autor) {
 		autor = autoresService.salvar(autor);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(autor.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualiza(@PathVariable("id") Long id, @RequestBody Autor autor) {
+	public ResponseEntity<?> atualiza(@PathVariable("id") Long id,@Valid @RequestBody Autor autor) {
 		Autor autorOrig = autoresService.buscar(id);
 		if (autorOrig != null) 
 			autor = autoresService.atualizar(autor);

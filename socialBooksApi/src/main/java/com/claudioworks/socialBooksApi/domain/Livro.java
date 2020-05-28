@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -32,10 +35,13 @@ public class Livro implements Serializable{
 	private Long id;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
+	@NotEmpty(message = "Nome do livro precisa ser preenchido")
+	@Size(max=255, message = "Tamanho máximo nome é de 255 caracteres")
 	private String nome;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
 	@JsonFormat(pattern = "dd/MM/yyyy")
+	@NotNull(message = "Data do livro precisa ser preenchido")
 	private Date publicacao;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null

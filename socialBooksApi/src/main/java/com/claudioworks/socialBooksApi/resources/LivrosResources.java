@@ -3,6 +3,8 @@ package com.claudioworks.socialBooksApi.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +53,7 @@ public class LivrosResources {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualiza(@PathVariable("id") Long id, @RequestBody Livro livro) {
+	public ResponseEntity<?> atualiza(@PathVariable("id") Long id, @Valid @RequestBody Livro livro) {
 		Livro livroOrig = null;
 		livroOrig = livrosService.buscar(id);
 		if (livroOrig != null) {
@@ -75,7 +77,7 @@ public class LivrosResources {
 	}
 	
 	@RequestMapping(value = "/{id}/comentarios", method = RequestMethod.POST)
-	public ResponseEntity<Void> adicionarComentario(@PathVariable("id") Long livroId, @RequestBody Comentario comentario) {
+	public ResponseEntity<Void> adicionarComentario(@PathVariable("id") Long livroId, @Valid @RequestBody Comentario comentario) {
 		livrosService.salvarComentario(livroId, comentario);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
 		return ResponseEntity.created(uri).build();

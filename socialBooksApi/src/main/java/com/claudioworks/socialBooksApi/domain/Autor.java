@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,10 +26,13 @@ public class Autor {
 	private Long id;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
+	@NotEmpty(message = "Nome do autor precisa ser preenchido")
+	@Size(max=255, message = "Tamanho máximo nome é de 255 caracteres")
 	private String nome;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
 	@JsonFormat(pattern = "dd/MM/yyyy")
+	@NotNull(message = "Data de nascimento precisa ser preenchido")
 	private Date dataNascimento;
 	
 	@JsonInclude(Include.NON_NULL) //só retorna valor se for not null
