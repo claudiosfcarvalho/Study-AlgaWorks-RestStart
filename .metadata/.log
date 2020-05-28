@@ -4901,3 +4901,39 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:39.168
+!MESSAGE Preparing classpath changed notification socialBooksApi
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:39.302
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:39.502
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:39.577
+!MESSAGE buffering callback sts4.classpath.cLJwiBeZ socialBooksApi false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:39.613
+!MESSAGE executing callback sts4.classpath.cLJwiBeZ 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:39.794
+!MESSAGE executing callback sts4.classpath.cLJwiBeZ SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:46.298
+!MESSAGE Preparing classpath changed notification socialBooksApi
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:46.312
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:46.365
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:46.379
+!MESSAGE buffering callback sts4.classpath.cLJwiBeZ socialBooksApi false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:46.392
+!MESSAGE executing callback sts4.classpath.cLJwiBeZ 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-28 16:47:46.592
+!MESSAGE executing callback sts4.classpath.cLJwiBeZ SUCCESS [done]
