@@ -2,10 +2,12 @@ package com.claudioworks.socialBooksApi.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,7 +44,12 @@ public class LivrosResources {
 	public ResponseEntity<?> buscar(@PathVariable("id") Long id) {
 		Livro livro = livrosService.buscar(id);
 		// se der exception será tratado no handler
-		return ResponseEntity.status(HttpStatus.OK).body(livro);
+		
+		//quando executar o buscar o cache do cliente sera preenchido com a validade de  20 segundos
+		//assim que houver outra chamada antes de vencer esse tempo os dados apresentado serão dos dados 
+		//apresentado em cache
+		CacheControl cacheControl = CacheControl.maxAge(20, TimeUnit.SECONDS);
+		return ResponseEntity.status(HttpStatus.OK).cacheControl(cacheControl).body(livro);
 	}
 
 	@PostMapping
